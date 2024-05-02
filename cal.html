@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+	body{
+		background: gray;
+	}
+	*{
+		margin: 0;
+		padding:0 ;
+		box-sizing: border-box;
+	}
+		.main{
+			width: 300px;
+			height: 505px;
+			background: #393b39;
+			border: 5px solid white;
+			margin: 100px 200px;
+		}
+		.top{
+			height: 40%;
+			color: white;
+			border-bottom:5px solid white ;
+		}
+		.top input{
+			background: #393b39;
+			color: white;
+			border: none;
+			width: 290px;
+			text-align: right;
+			font-size: 25px;
+			margin-top:160px ;
+		}
+		.bottom{
+			height: 60%;
+			color: white;
+
+		}
+		td input:hover{
+			background-color: rgba(0, 0, 0, 0.8);
+			color: white;
+			cursor: pointer;
+			transition: .3s;
+		}
+		td input{
+			height: 57px;
+			width: 70px;
+			text-align: center;
+			font-size: 25px;
+			border: none;			
+		}
+		.rowspan input{
+			height: 116px;
+			border: none;
+		}
+	</style>
+	<script type="text/javascript">
+		var	first_val,last_val,val;
+		function getdata(x) {
+			document.getElementById('disp').value+=x;
+		}
+		function data(ch) {
+			
+			first_val=document.getElementById('disp').value;
+			document.getElementById('disp').value='';
+			val=ch;
+		}
+		// function ans(){
+		// 	last_val=document.getElementById('disp').value;
+		// 	var ans=parseInt(frist_val)+parseInt(last_val);
+
+		// 	document.getElementById('disp').value=ans;
+		// }
+		function cal(){
+			last_val=document.getElementById('disp').value;
+			switch(val){
+				case 1:{
+					
+					
+					var ans=parseInt(first_val)+parseInt(last_val);
+					document.getElementById('disp').value=ans;
+					break;
+				}
+				case 2:{
+			
+					var ans=parseInt(first_val)-parseInt(last_val);
+					document.getElementById('disp').value=ans;
+					break;
+				}
+				case 3:{
+					var ans=parseInt(first_val)*parseInt(last_val);
+					document.getElementById('disp').value=ans;
+					break;
+				}
+				case 4:{
+					var ans=parseInt(first_val)/parseInt(last_val);
+					document.getElementById('disp').value=ans;
+					break;
+				}
+			case 5:{
+					var ans=parseInt(first_val)%parseInt(last_val);
+					document.getElementById('disp').value=ans;
+					break;
+				}
+			}
+		}
+		function clrdata(){
+			document.getElementById('disp').value='';
+		}
+		function remove_data(){
+			var del=document.getElementById('disp').value;
+			var n=del.substring(0,del.length-1);
+			document.getElementById('disp').value=n;
+		}
+
+	</script>
+</head>
+<body>
+	<div class="main">
+		<div class="top">
+			<input type="text" name="" id='disp'>
+		</div>
+		<div class="bottom">
+			<table>
+				<tr>
+					<td><input type="button" value="AC" onclick="clrdata()"></td>
+					<td><input type="button" value="/" onclick="data(4)"></td>
+					<td><input type="button" value="X" onclick="data(3)"></td>
+					<td><input type="button" value="%" onclick="data(5)"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="7" onclick="getdata('7')"></td>
+					<td><input type="button" value="8" onclick="getdata('8')"></td>
+					<td><input type="button" value="9" onclick="getdata('9')"></td>
+					<td><input type="button" value="-" onclick="data(2)"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="4" onclick="getdata('4')"></td>
+					<td><input type="button" value="5" onclick="getdata('5')"></td>
+					<td><input type="button" value="6" onclick="getdata('6')"></td>
+					<td><input type="button" value="+" onclick="data(1)"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="1" onclick="getdata('1')"></td>
+					<td><input type="button" value="2" onclick="getdata('2')"></td>
+					<td><input type="button" value="3" onclick="getdata('3')"></td>
+					<td rowspan="2" class="rowspan">
+						<input type="button" value="=" onclick="cal()">
+					</td>
+				</tr>
+				<tr>
+					<td><input type="button" value="." onclick="getdata('.')"></td>
+					<td><input type="button" value="0" onclick="getdata('0')"></td>
+					<td><input type="button" value="00" onclick="getdata('00')"></td>
+				</tr>
+			</table>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
